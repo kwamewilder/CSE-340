@@ -1,0 +1,248 @@
+
+   html {
+    background-image: url("/phpmotors/images/site/small_check.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    box-sizing: border-box;
+}
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+@import url('https://fonts.googleapis.com/css?family=Baloo|Open+Sans');
+
+/*Mobile First*/
+@media screen and (min-width: 320px){
+    h1,h2,h3 {
+        font-family: 'Baloo', cursive;
+        margin: 0;
+    }
+
+    p {
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    h1 {
+        font-size: 300%;
+    }
+
+    h2 {
+        font-size: 250%;
+    }
+
+    h3 { 
+        font-size: 200%;
+    }
+
+    p {
+        font-size: 100%;
+    }
+
+    main{
+        display: flex;
+        margin: auto 0;
+        padding: 10px;
+        flex-direction: column;
+    }
+
+    body {
+        border-color: #4c96d7;
+        border-width: 5px;
+        border-style: solid;
+        background-color: #ffffff;
+        margin: 0 auto;
+        width: 85%;
+        min-height: 100%;
+    }
+
+   
+    a:link {
+        color: #4c96d7;
+        font-family: 'Baloo', sans-serif;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 5px 10px;
+    }
+
+   
+    nav {
+        width: 100%;
+        background-color: #3a3a3a;
+    }
+    nav ul {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+    nav li {
+        list-style-type: none;
+        float: left;
+        font-family: 'Baloo', sans-serif;
+        font-size: 1em;
+    }
+
+    nav ul li a {
+        display: block;
+        text-decoration: none;
+        padding: 15px;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: #3a3a3a;
+        display: block;
+    }
+
+    nav a:hover {
+        background-color: #ffffff;
+        color: #4c96d7;
+    }
+
+    nav a:active {
+        background-color: #3a3a3a;
+        color: #4c96d7;
+    }
+
+    nav a:visited {
+        background-color: #4c96d7;
+        color: #3a3a3a;
+    }
+
+    header span{
+        margin-right: .5em;
+        font-size: smaller; 
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 20px;
+    }
+
+    footer {
+        background-color: #ffffff;
+        color: #000000; 
+        text-align: center;
+    }
+
+    #bottom{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    }
+    #reviews {
+        display: grid;
+        grid-area: 1 / 1 / 2 / 3;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #upgrades1{
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        background-color: #4c96d7;
+        border-color: #ffffff;
+        border-width: 5px;
+        border-style: solid;
+    }
+
+    #upgrades2{
+        display: grid;
+        align-items: center;
+        justify-content: center; 
+        background-color: #4c96d7; 
+        border-color: #ffffff;
+        border-width: 5px;
+        border-style: solid;    
+    }
+
+    #upgrades3{
+        display: grid;
+        background-color: #4c96d7;
+        align-items: center;
+        justify-content: center;
+        border-color: #ffffff;
+        border-width: 5px;
+        border-style: solid;
+    }
+
+    #upgrades4{
+        display: grid;
+        align-items: center;
+        justify-content: center;  
+        background-color: #4c96d7;
+        border-color: #ffffff;
+        border-width: 5px;
+        border-style: solid;   
+    }
+    #own{
+        max-width: 15%;
+    }
+
+    #delorean{
+        color: #4c96d7;
+    }
+
+}
+
+@media only screen and (min-width : 992px) 
+{
+   
+
+    #reviews {
+        display: grid;
+        grid-area: 1 / 3 / 6 / 5;
+    }
+
+    #upgrades1{
+        display: grid;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #upgrades2{
+        display: grid;
+        align-items: center;
+        justify-content: center;      
+    }
+
+    #upgrades3{
+        display: grid;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #upgrades4{
+        display: grid;
+        align-items: center;
+        justify-content: center;     
+    }
+
+
+    #car {
+        max-width: 100%;
+        background-repeat: no-repeat;
+        margin: 0 auto;
+        position: relative; 
+
+    }
+
+    #own{
+        max-width: 15%;
+    }
+
+    
+
+    #bottom{
+        display: grid;  
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr repeat(3, 0) 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    }
+
+}
