@@ -13,14 +13,15 @@
 
 // Get the array of classifications
 $classifications = getClassifications();
+$navList = buildNav();
 
 // Build a navigation bar using the $classifications array
- $navList = '<ul>';
- $navList .= "<li><a href='/phpmotors/index.php' title='View the PHP Motors home page'>Home</a></li>";
- foreach ($classifications as $classification) {
-  $navList .= "<li><a href='/phpmotors/index.php?action=".urlencode($classification['classificationName'])."' title='View our $classification[classificationName] product line'>$classification[classificationName]</a></li>";
- }
- $navList .= '</ul>';
+ //$navList = '<ul>';
+ //$navList .= "<li><a href='/phpmotors/index.php' title='View the PHP Motors home page'>Home</a></li>";
+ //foreach ($classifications as $classification) {
+  //$navList .= "<li><a href='/phpmotors/index.php?action=".urlencode($classification['classificationName'])."' title='View our $classification[classificationName] product line'>$classification[classificationName]</a></li>";
+ //}
+ //$navList .= '</ul>';
 
  //echo $navList;
 
@@ -39,20 +40,26 @@ $action = filter_input(INPUT_POST, 'action');
  
  case 'register':
     // Filter and store the data
-    $clientFirstname = filter_input(INPUT_POST, 'clientFirstname');
-    $clientLastname = filter_input(INPUT_POST, 'clientLastname');
-    $clientEmail = filter_input(INPUT_POST, 'clientEmail');
-    $clientPassword = filter_input(INPUT_POST, 'clientPassword');
+    $clientFirstname = trim(filter_input(INPUT_POST, 'clientFirstname'));
+    $clientLastname = trim(filter_input(INPUT_POST, 'clientLastname'));
+    $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail'));
+    $clientPassword = trim(filter_input(INPUT_POST, 'clientPassword'));
+    
+    $clientEmail = checkEmail($clientEmail);
+    $checkPassword = checkPassword($clientPassword);
 
     // Check for missing data
-    if(empty($clientFirstname) || empty($clientLastname) || empty($clientEmail) || empty($clientPassword)){
+    if(empty($clientFirstname) || empty($clientLastname) || empty($clientEmail) || empty($checkPassword)){
     $message = '<p>Please provide information for all empty form fields.</p>';
     include '../view/registration.php';
         exit; 
     }
 
+    // Hash the checked password
+    $hashedPassword = password_hash($clientPassword, PASSWORD_DEFAULT);
+
     // Send the data to the model
-    $regOutcome = regClient($clientFirstname, $clientLastname, $clientEmail, $clientPassword);
+    $regOutcome = regClient($clientFirstname, $clientLastname, $clientEmail, $hashedPassword);
 
     // Check and report the result
     if($regOutcome === 1){
@@ -66,12 +73,23 @@ $action = filter_input(INPUT_POST, 'action');
 }
 break;
 
+case 'Login':
+    // Filter and store the data
+    $clientEmail = trim(filter_input(INPUT_POST, 'clientEmail'));
+    $clientPassword = trim(filter_input(INPUT_POST, 'clientPassword')); 
 
+    $clientEmail = checkEmail($clientEmail);
+    $checkPassword = checkPassword($clientPassword); 
+
+    // Check for missing data
+    if(empty($clientEmail) || empty($checkPassword)){
+    $message = '<p>Please provide information for all empty form fields.</p>';
+    include '../view/login.php';
+        exit; 
+    }      
+ break;
 
    
-
-    break;
-
 
  default:
   

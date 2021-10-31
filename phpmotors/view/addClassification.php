@@ -24,8 +24,9 @@
                 }
                 ?>
                 <h1>Add Classification</h1>
+                <span>Maximum of 30 characters allowed</span>
                 <form action="/phpmotors/vehicles/index.php" method="post" >
-                    <input type="text" name="classificationName" <?php if(isset($classificationName)){echo "value='$classificationName'";} ?> required />
+                    <input type="text" name="classificationName" maxlength="30" required> <?php if(isset($classificationName)){echo "value='$classificationName'";} ?> 
                     <br>
                     <input type="submit" name="submit" class="field-button" id="regbtn" value="Add">           
                             <input type="hidden" name="action" value="addClass">

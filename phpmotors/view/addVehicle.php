@@ -1,6 +1,21 @@
+<?php
+ 
+//Buil classification list
+$classList = "<select name='classificationId' id='classificationId'>";
+$classList .= '<option value ="">Please Choose</option>';
+foreach ($classifications as $classification) {
+   $classList .= "<option value='$classification[classificationId]'";
+   if(isset($classificationId)){
+   
+   if($classId['classificationId'] === $classificationId){
+     $classList .= ' selected ';
+ }
+}   
+   $classList .= ">$classification[classificationName]</option>";
+}
+$classList .= "</select>";
 
-
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang="en-us">
     <head>
         <meta charset="UTF-8">
